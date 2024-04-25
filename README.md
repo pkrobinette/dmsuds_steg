@@ -4,7 +4,7 @@ These experiments were conducted on a macOS 13.5.2 with an Apple M2 Max processo
 ## Installation
 1. Install all necessary dependencies and folders
 ```
-chmod +x setup.sh && ./setup.sh
+chmod +x setup.sh && ./setup.sh && conda activate dmsuds
 ```
 
 2. Download Necessary Models and Datasets
