@@ -186,24 +186,24 @@ def main():
         dwt_ber_pre.append(ber_pre)
         dwt_ber_post.append(ber_post)
         dwt_rr.append(rr)
+        break
     #
     # Print results
     #
     print("-------------------- Results ---------------------")
-    print("\t LSB | DWT | SS")
-    print(f"MSE: {round(np.mean(lsb_mse), 4)} | {round(np.mean(dwt_mse), 4)} | {round(np.mean(ss_mse), 4)}")
-    print(f"Pre-BER: {round(np.mean(lsb_ber_pre), 4)} | {round(np.mean(dwt_ber_pre), 4)} | {round(np.mean(ss_ber_pre), 4)} ")
-    print(f"Post-BER: {round(np.mean(lsb_ber_post), 4)} | {round(np.mean(dwt_ber_post), 4)} | {round(np.mean(ss_ber_post), 4)} ")
-    print(f"RR: {round(np.mean(lsb_rr), 4)} | {round(np.mean(dwt_rr), 4)} | {round(np.mean(ss_rr), 4)} ")
+    print("Hiding Method \t | Hide Eval (BER-pre) \t | IP Eval (MSE) \t | SE Eval (BER-post) \t | SE Eval (RR) ")
+    print(f"LSB \t | {round(np.mean(lsb_ber_pre), 4)} \t | {round(np.mean(lsb_mse), 4)} \t | {round(np.mean(lsb_ber_post), 4)} \t |  {round(np.mean(lsb_rr), 4)} ")
+    print(f"SS \t | {round(np.mean(ss_ber_pre), 4)} \t | {round(np.mean(ss_mse), 4)} \t | {round(np.mean(ss_ber_post), 4)} \t |  {round(np.mean(ss_rr), 4)} ")
+    print(f"DWT \t | {round(np.mean(dwt_ber_pre), 4)} \t | {round(np.mean(dwt_mse), 4)} \t | {round(np.mean(dwt_ber_post), 4)} \t |  {round(np.mean(dwt_rr), 4)} ")
+
     
     results = "-------------------- Results ---------------------\n"
-    results += "\t LSB | DWT | SS \n"
-    results += f"MSE: {round(np.mean(lsb_mse), 4)} | {round(np.mean(dwt_mse), 4)} | {round(np.mean(ss_mse), 4)}\n"
-    results += f"Pre-BER: {round(np.mean(lsb_ber_pre), 4)} | {round(np.mean(dwt_ber_pre), 4)} | {round(np.mean(ss_ber_pre), 4)}\n"
-    results += f"Post-BER: {round(np.mean(lsb_ber_post), 4)} | {round(np.mean(dwt_ber_post), 4)} | {round(np.mean(ss_ber_post), 4)}\n"
-    results += f"RR: {round(np.mean(lsb_rr), 4)} | {round(np.mean(dwt_rr), 4)} | {round(np.mean(ss_rr), 4)}\n"
+    results += f"Hiding Method \t | Hide Eval (BER-pre) \t | IP Eval (MSE) \t | SE Eval (BER-post) \t | SE Eval (RR)\n"
+    results += f"LSB \t | {round(np.mean(lsb_ber_pre), 4)} \t | {round(np.mean(lsb_mse), 4)} \t | {round(np.mean(lsb_ber_post), 4)} \t |  {round(np.mean(lsb_rr), 4)}\n"
+    results += f"SS \t\t | {round(np.mean(ss_ber_pre), 4)} | {round(np.mean(ss_mse), 4)}  \t | {round(np.mean(ss_ber_post), 4)}  \t |  {round(np.mean(ss_rr), 4)}\n"
+    results += f"DWT \t | {round(np.mean(dwt_ber_pre), 4)} \t | {round(np.mean(dwt_mse), 4)} \t | {round(np.mean(dwt_ber_post), 4)} \t |  {round(np.mean(dwt_rr), 4)}\n"
     
-    with open("audio_sanitize_results.txt", "w") as text_file:
+    with open("../results/audio_sanitize_results.txt", "w") as text_file:
         text_file.write(results)
     #
     # Save data
@@ -222,4 +222,8 @@ def main():
                        'dwt_rr': [np.mean(dwt_rr)]},
                       index=[0])
     df_mean = df.round(4)
-    df_mean.to_csv("audio_sanitize_results_means.csv")
+    print(df_mean)
+    df_mean.to_csv("../results/audio_sanitize_df.csv")
+
+if __name__ == "__main__":
+    main()
