@@ -266,7 +266,7 @@ def main():
     # Load data
     #
     test_images = load_test_all("cifar", pickle_path="test_set_04-2024")
-    num = 2
+    num = 500
     covers = test_images[:num]
     secrets = test_images[num:2*num]
     HnetD, RnetD = load_ddh(config="rgb_ddh")
