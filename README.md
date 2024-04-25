@@ -1,50 +1,48 @@
-# Monsters in the Dark: Sanitizing Hidden Threats with Diffusion Models
+# DM-SUDS: Sanitizing Hidden Information
 These experiments were conducted on a macOS 13.5.2 with an Apple M2 Max processor with 64 GB of memory.
 
 ## Installation
-
-### Conda Environment (Recommended)
-This creates, activates, and installs all necessary dependencies.
-
+1. Install all necessary dependencies and folders
 ```
-conda create -y -n dmsuds pip python=3.8 && conda activate dmsuds && pip install -r requirements.txt
+chmod +x setup.sh && ./setup.sh
 ```
 
-### Download Necessary Models and Datasets
-1. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/cifar10_uncond_50M_500K.pt`:
-   > Unconditional CIFAR-10 with our L_hybrid objective and cosine noise schedule (cifar10_uncond_50M_500K.pt)
-2. Download the following checkpoint from [https://github.com/openai/guided-diffusion] to `models/diffusion_models/256x256_diffusion_uncond.pt`:
-   > 256x256_diffusion_uncond.pt
-3. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/imagenet64_uncond_100M_1500K.pt`
-   > imagenet64_uncond_100M_1500K.pt (Unconditional ImageNet-64 with our L_hybrid objective)
-4. Download the ImageNet dataset to the following directory:
-   > datasets/ImageNet
+2. Download Necessary Models and Datasets
+   
+   a. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/cifar10_uncond_50M_500K.pt`:
+      > Unconditional CIFAR-10 with our L_hybrid objective and cosine noise schedule (cifar10_uncond_50M_500K.pt)
+   
+   b. Download the following checkpoint from [https://github.com/openai/guided-diffusion] to `models/diffusion_models/256x256_diffusion_uncond.pt`:
+      > 256x256_diffusion_uncond.pt
+
+   c. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/imagenet64_uncond_100M_1500K.pt`
+      > imagenet64_uncond_100M_1500K.pt (Unconditional ImageNet-64 with our L_hybrid objective)
+
+   d. Download the ImageNet dataset to the following directory:
+      > datasets/ImageNet
+
+   e. Download the UrbanSound8K dataset to the following directory:
+      > audio_case_study/data/UrbanSound8K
 
 
-## Artifact Instructions (~1.5 hrs to run)
-All models are pre-trained. Reproduce results by:
-
+## Artifact Instructions (~15 hrs to run)
+1. All models are pre-trained. Reproduce results by running:
 ```
-chmod +x scripts/*
-./scripts/run_all.sh
+chmod +x scripts/* && ./scripts/run_all.sh
 ```
-2. If you would like to reproduce a specific figure, see the index below and run:
-```
-python *.py
-```
+2. All results are saved to the `results` folder. To recreate a specific research question (RQ), see the command map below.
 
-## Results Index
-All results are saved to the `results` folder. 
-
-| Artifact | Python Script | Result Location |
+| RQ | Python Script | Result Location |
 | -------- | -------- | -------- |
-| **Table 1, Figure 2:** | `python exp_sanitize.py && python make_sanitize_picture.py` | `results/*` |
-| **Figure 3:** | `python exp_diffusion_steps.py && make_timestep_picture.py` | `results/*` |
-| **Figure 4:** | `python exp_noise_effect.py && make_no_noise_picture.py` | `results/*` |
-| **Table 2, Figure 5:** |  `python exp_sanitize_imagenet_ddh.py && python exp_sanitize_imagenet_pris.py && make_imagenet_picture.py` | `results/*` |
+| **RQ1** | `chmod +x scripts/rq1.sh && ./scripts/rq1.sh` | `results/*` |
+| **RQ2** | `chmod +x scripts/rq2.sh && ./scripts/rq2.sh` | `results/*` |
+| **RQ3** | `chmod +x scripts/rq3.sh && ./scripts/rq3.sh` | `results/*` |
+| **RQ4** | `chmod +x scripts/rq4.sh && ./scripts/rq4.sh` | `results/*` |
 
 
 #### Directories
+> `audio_case_study`: files for the audio case study
+
 > `configs`: training config files for udh and ddh
 
 > `models`: all pre-trained models
