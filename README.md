@@ -1,4 +1,4 @@
-# DM-SUDS: Sanitizing Hidden Information
+# Sanitizing Hidden Information with Diffusion Models
 These experiments were conducted on a macOS 13.5.2 with an Apple M2 Max processor with 64 GB of memory.
 
 ## Installation
