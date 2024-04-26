@@ -12,10 +12,10 @@ chmod +x setup.sh && ./setup.sh && conda activate dmsuds
    a. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/cifar10_uncond_50M_500K.pt`:
       > Unconditional CIFAR-10 with our L_hybrid objective and cosine noise schedule (cifar10_uncond_50M_500K.pt)
 
-   c. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/imagenet64_uncond_100M_1500K.pt`
+   b. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/imagenet64_uncond_100M_1500K.pt`
       > imagenet64_uncond_100M_1500K.pt (Unconditional ImageNet-64 with our L_hybrid objective)
 
-   b. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/imagenet64_uncond_vlb_100M_1500K.pt`:
+   c. Download the following checkpoint from [https://github.com/openai/improved-diffusion] to `models/diffusion_models/imagenet64_uncond_vlb_100M_1500K.pt`:
       > imagenet64_uncond_vlb_100M_1500K.pt (Unconditional ImageNet-64 with the L_vlb objective and cosine noise schedule)
 
    d. Download the ImageNet dataset to the following directory:
